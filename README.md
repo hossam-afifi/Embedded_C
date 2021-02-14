@@ -1,1 +1,1 @@
-Lern_In_Depth Embedded c
+Learn_In_Depth Embedded_c
