@@ -1,0 +1,107 @@
+
+toggle_led.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+08000000 <main>:
+ 8000000:	b480      	push	{r7}
+ 8000002:	b083      	sub	sp, #12
+ 8000004:	af00      	add	r7, sp, #0
+ 8000006:	f241 0318 	movw	r3, #4120	; 0x1018
+ 800000a:	f2c4 0302 	movt	r3, #16386	; 0x4002
+ 800000e:	f241 0218 	movw	r2, #4120	; 0x1018
+ 8000012:	f2c4 0202 	movt	r2, #16386	; 0x4002
+ 8000016:	6812      	ldr	r2, [r2, #0]
+ 8000018:	f042 0204 	orr.w	r2, r2, #4
+ 800001c:	601a      	str	r2, [r3, #0]
+ 800001e:	f640 0304 	movw	r3, #2052	; 0x804
+ 8000022:	f2c4 0301 	movt	r3, #16385	; 0x4001
+ 8000026:	f640 0204 	movw	r2, #2052	; 0x804
+ 800002a:	f2c4 0201 	movt	r2, #16385	; 0x4001
+ 800002e:	6812      	ldr	r2, [r2, #0]
+ 8000030:	f422 0270 	bic.w	r2, r2, #15728640	; 0xf00000
+ 8000034:	601a      	str	r2, [r3, #0]
+ 8000036:	f640 0304 	movw	r3, #2052	; 0x804
+ 800003a:	f2c4 0301 	movt	r3, #16385	; 0x4001
+ 800003e:	f640 0204 	movw	r2, #2052	; 0x804
+ 8000042:	f2c4 0201 	movt	r2, #16385	; 0x4001
+ 8000046:	6812      	ldr	r2, [r2, #0]
+ 8000048:	f442 1200 	orr.w	r2, r2, #2097152	; 0x200000
+ 800004c:	601a      	str	r2, [r3, #0]
+ 800004e:	f240 03b4 	movw	r3, #180	; 0xb4
+ 8000052:	f6c0 0300 	movt	r3, #2048	; 0x800
+ 8000056:	681b      	ldr	r3, [r3, #0]
+ 8000058:	881a      	ldrh	r2, [r3, #0]
+ 800005a:	f442 5200 	orr.w	r2, r2, #8192	; 0x2000
+ 800005e:	801a      	strh	r2, [r3, #0]
+ 8000060:	f04f 0300 	mov.w	r3, #0
+ 8000064:	607b      	str	r3, [r7, #4]
+ 8000066:	e003      	b.n	8000070 <main+0x70>
+ 8000068:	687b      	ldr	r3, [r7, #4]
+ 800006a:	f103 0301 	add.w	r3, r3, #1
+ 800006e:	607b      	str	r3, [r7, #4]
+ 8000070:	687a      	ldr	r2, [r7, #4]
+ 8000072:	f241 3387 	movw	r3, #4999	; 0x1387
+ 8000076:	429a      	cmp	r2, r3
+ 8000078:	ddf6      	ble.n	8000068 <main+0x68>
+ 800007a:	f240 03b4 	movw	r3, #180	; 0xb4
+ 800007e:	f6c0 0300 	movt	r3, #2048	; 0x800
+ 8000082:	681b      	ldr	r3, [r3, #0]
+ 8000084:	881a      	ldrh	r2, [r3, #0]
+ 8000086:	f422 5200 	bic.w	r2, r2, #8192	; 0x2000
+ 800008a:	801a      	strh	r2, [r3, #0]
+ 800008c:	f04f 0300 	mov.w	r3, #0
+ 8000090:	607b      	str	r3, [r7, #4]
+ 8000092:	e003      	b.n	800009c <main+0x9c>
+ 8000094:	687b      	ldr	r3, [r7, #4]
+ 8000096:	f103 0301 	add.w	r3, r3, #1
+ 800009a:	607b      	str	r3, [r7, #4]
+ 800009c:	687a      	ldr	r2, [r7, #4]
+ 800009e:	f241 3387 	movw	r3, #4999	; 0x1387
+ 80000a2:	429a      	cmp	r2, r3
+ 80000a4:	ddf6      	ble.n	8000094 <main+0x94>
+ 80000a6:	e7d2      	b.n	800004e <main+0x4e>
+
+080000a8 <reset>:
+ 80000a8:	f7ff ffaa 	bl	8000000 <main>
+
+Disassembly of section .rodata:
+
+080000ac <const_variable>:
+ 80000ac:	00030201 	andeq	r0, r3, r1, lsl #4
+
+Disassembly of section .data:
+
+080000b0 <q_variable>:
+ 80000b0:	00030201 	andeq	r0, r3, r1, lsl #4
+
+080000b4 <R_ODR>:
+ 80000b4:	4001080c 	andmi	r0, r1, ip, lsl #16
+
+Disassembly of section .comment:
+
+00000000 <.comment>:
+   0:	3a434347 	bcc	10d0d24 <main-0x6f2f2dc>
+   4:	4e472820 	cdpmi	8, 4, cr2, cr7, cr0, {1}
+   8:	34202955 	strtcc	r2, [r0], #-2389	; 0x955
+   c:	322e372e 	eorcc	r3, lr, #12058624	; 0xb80000
+	...
+
+Disassembly of section .ARM.attributes:
+
+00000000 <.ARM.attributes>:
+   0:	00003041 	andeq	r3, r0, r1, asr #32
+   4:	61656100 	cmnvs	r5, r0, lsl #2
+   8:	01006962 	tsteq	r0, r2, ror #18
+   c:	00000026 	andeq	r0, r0, r6, lsr #32
+  10:	726f4305 	rsbvc	r4, pc, #335544320	; 0x14000000
+  14:	2d786574 	cfldr64cs	mvdx6, [r8, #-464]!	; 0xfffffe30
+  18:	0600334d 	streq	r3, [r0], -sp, asr #6
+  1c:	094d070a 	stmdbeq	sp, {r1, r3, r8, r9, sl}^
+  20:	14041202 	strne	r1, [r4], #-514	; 0x202
+  24:	17011501 	strne	r1, [r1, -r1, lsl #10]
+  28:	1a011803 	bne	4603c <main-0x7fb9fc4>
+  2c:	22061e01 	andcs	r1, r6, #1, 28
+  30:	Address 0x00000030 is out of bounds.
+
